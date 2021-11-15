@@ -1,0 +1,15 @@
+
+#startButton{
+    display: block;
+    position: absolute;
+    width: 200px;
+    height: 50px;
+    top: 5%;
+    z-index: 1000;
+    
+}
+
+#canvas{
+    position: absolute;
+    z-index: 1000;
+}
