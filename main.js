@@ -43,6 +43,8 @@ let gap = 110;
 
 //взлет и звук взлета
 document.addEventListener("keydown", moveUp, false);
+
+
 function moveUp() {
     if(document.documentElement.contains(cvs) == false){
         document.removeEventListener("keydown", moveUp, false);
@@ -50,8 +52,8 @@ function moveUp() {
     }
     yPos += -50;
     fly.play();
+    
 }
-console.log(document.documentElement.contains(cvs))
 
 
 
@@ -116,9 +118,12 @@ let clientY = document.documentElement.clientHeight / 2;
 let xCoordForButt = clientX - 100;
 
 startButton.style.left = xCoordForButt + "px";
-
+startCount = 1;
 startButton.onclick = function(){
-    
+    if(startCount == 2){
+        window.location.reload();
+    }
+    startCount++;
      draw();
 }
 
@@ -128,7 +133,7 @@ function gameOver(){
     cvs.remove();
     
     let divGameOver = document.createElement("div");
-    divGameOver.innerHTML = "<h1> Game Over!</h1> \n <h3>For restart click RESTART</h3>";
+    divGameOver.innerHTML = "<h1> Game Over!</h1> \n <h2>Yor resalt is "+ score + "</h2> \n <h3>For restart click START!</h3>";
 
     divGameOver.style.position = "absolute";
     divGameOver.style.color = "red";
